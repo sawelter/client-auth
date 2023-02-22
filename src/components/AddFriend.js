@@ -1,19 +1,29 @@
 import React from "react";
+import { addFriend } from '../actions/friendsActions.js'
+import { connect } from "react-redux";
+ 
 
 class AddFriend extends React.Component {
     state = {
         friend: {
             name: '',
             email: '',
-            id: ''
+            id: Date.now()
         }
     }
 
+    handleSubmit = (e) => {
+        console.log(this.state.friend.name);
+        e.preventDefault();
+        this.props.addFriend(this.state.friend);
+    }
+
     handleChange = e => {
-        console.log(`${e.target.name}: ${e.target.value}`)
+        // console.log(`${e.target.name}: ${e.target.value}`)
+        console.log(this.state.friend)
         this.setState({
             friend: {
-                ...this.friend,
+                ...this.state.friend,
                 [e.target.name]: e.target.value
             } 
         })
@@ -23,18 +33,18 @@ class AddFriend extends React.Component {
     return (
         <div>
             <h2>Add Friend</h2>
-            <form id="login-form">
+            <form id="login-form" onSubmit={this.handleSubmit}>
                 <label>Friend Name</label>
                 <input 
                     type="text"
-                    name="friend-name"
+                    name="name"
                     value={this.state.friend.name}
                     onChange={this.handleChange}
                 />
                 <label>Friend Email</label>
                 <input 
                     type="text"
-                    name="friend-email"
+                    name="email"
                     value={this.state.friend.email}
                     onChange={this.handleChange}
                 />
@@ -46,4 +56,5 @@ class AddFriend extends React.Component {
     
 }
 
-export default AddFriend;
+
+export default connect(null, {addFriend})(AddFriend);

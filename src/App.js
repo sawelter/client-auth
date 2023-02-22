@@ -11,7 +11,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Login /> */}
 
       <Routes>
         <Route exact path="/" element={<Login/>}/>

@@ -6,11 +6,11 @@ const FriendsList = (props) => {
 
     console.log(props.friends);
     return (
-        <div>
+        <div id="friends-list">
             {props.friends.map((friend) => {
                 return (
                     <div className="friend" key={friend.id}>
-                        {friend.name}: {friend.email}
+                        <div className="friend-name">{friend.name}</div><div className="friend-email">{friend.email}</div>
                     </div>
                 )
             })}
