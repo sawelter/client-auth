@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Header from './components/Header';
 import AddFriend from './components/AddFriend.js';
 import FriendsList from './components/FriendsList';
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/friends/add" element={<AddFriend />} />
         <Route path="/friends" element={<FriendsList />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );

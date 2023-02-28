@@ -24,7 +24,6 @@ const FriendsList = () => {
 
     return (
         <div id="friends-list">
-            {!localStorage.getItem('token') && <h3>You are not logged in.</h3>}
             {friends.map((friend) => {
                 return (
                     <div className="friend" key={friend.id}>

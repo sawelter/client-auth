@@ -1,16 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 export default function Header () {
-
-    const navigate = useNavigate();
-    const logout = () => {
-        localStorage.clear();
-        navigate("/");
-    }
-
 
     return (
         <header>
@@ -19,7 +13,7 @@ export default function Header () {
                 <Link to="/login">Login.</Link>
                 <Link to="/friends">Friends List.</Link>
                 <Link to="/friends/add">Add Friend.</Link>
-                <Link to="/" onClick={logout}>Logout.</Link>
+                <Link to="/logout">Logout.</Link>
             </nav>
         </header>
     );

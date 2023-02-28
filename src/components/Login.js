@@ -25,7 +25,7 @@ const Login = (props) => {
             .then(res => {
                 console.log(res);
                 localStorage.setItem("token", res.data.token);
-                navigate("/friendslist");
+                navigate("/friends");
             })
             .catch(err => console.log(err));
     }
@@ -34,8 +34,6 @@ const Login = (props) => {
 
     return (
         <div>
-            {localStorage.getItem("token") && <div className="message">You are already logged in.</div>}
-
             <h2>Login</h2>
             <form id="login-form" onSubmit={handleSubmit}>
                 <label>Username</label>
