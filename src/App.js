@@ -8,6 +8,7 @@ import AddFriend from './components/AddFriend.js';
 import FriendsList from './components/FriendsList';
 import Logout from './components/Logout';
 
+
 function App() {
   return (
     <div className="App">
@@ -16,7 +17,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Login />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/friends/add" element={<AddFriend />} />
+        <Route path="/friends/add" element={<AddFriend/>} />
         <Route path="/friends" element={<FriendsList />} />
         <Route path="/logout" element={<Logout />} />
       </Routes>

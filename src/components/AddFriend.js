@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
  
@@ -11,6 +11,10 @@ const initialFriend = {
 }
 
 const AddFriend = () => {
+    if(!localStorage.getItem("token")) {
+        return <Navigate to="/login" />
+    }
+
     const [friend, setFriend] = useState(initialFriend);
 
     const navigate = useNavigate();
