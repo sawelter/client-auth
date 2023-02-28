@@ -122,3 +122,8 @@ input {
     align-items: center;
   }
 }
+
+.message {
+  color: red;
+  padding: 1rem;
+}

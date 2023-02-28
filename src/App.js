@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Private, Navigate } from 'react-router-dom';
 
 import Login from './components/Login';
 import Header from './components/Header';
@@ -13,10 +13,10 @@ function App() {
       <Header />
 
       <Routes>
-        <Route exact path="/" element={<Login/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/addfriend" element={<AddFriend/>} />
-        <Route path="/friendslist" element={<FriendsList/>} />
+        <Route exact path="/" element={<Login />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/friends/add" element={<AddFriend />} />
+        <Route path="/friends" element={<FriendsList />} />
       </Routes>
     </div>
   );

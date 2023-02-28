@@ -1,13 +1,31 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 
-const FriendsList = (props) => {
+const FriendsList = () => {
+    const [friends, setFriends] = useState([]);
 
-    console.log(props.friends);
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        axios.get('http://localhost:9000/api/friends', {
+            headers: {
+                authorization: token,
+            }
+        })
+            .then(res => {
+                console.log(res)
+                setFriends(res.data)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }, [])
+
     return (
         <div id="friends-list">
-            {props.friends.map((friend) => {
+            {!localStorage.getItem('token') && <h3>You are not logged in.</h3>}
+            {friends.map((friend) => {
                 return (
                     <div className="friend" key={friend.id}>
                         <div className="friend-name">{friend.name}</div><div className="friend-email">{friend.email}</div>
@@ -18,10 +36,4 @@ const FriendsList = (props) => {
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        friends: state.friends
-    }
-}
-
-export default connect(mapStateToProps, {})(FriendsList);
+export default FriendsList;
